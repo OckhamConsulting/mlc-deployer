@@ -4,7 +4,7 @@ process_node_start()
 {
     heading "Starting..."
     parse_node_args "$@"
-    cd $BRIDGECHAIN_PATH
+    cd $BLOCKCHAIN_PATH
     if [[ "$AUTO_FORGER" == "Y" ]]; then
         forever start -s app.js --config "config.$CHAIN_NAME.autoforging.json" --genesis "genesisBlock.$CHAIN_NAME.json"
     else
@@ -39,6 +39,6 @@ process_node_restart()
 
 process_node_logs()
 {
-    cd $BRIDGECHAIN_PATH
-    tail -fn 500 logs/ark.log
+    cd $BLOCKCHAIN_PATH
+    tail -fn 500 logs/mlc.log
 }

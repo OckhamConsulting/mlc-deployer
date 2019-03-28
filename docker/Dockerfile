@@ -35,8 +35,8 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh
     . $DEPLOYER_HOME/.nvm/nvm.sh && \
     nvm install 8.9.1 && \
     cd $DEPLOYER_HOME && \
-    ./bridgechain.sh install-node --config "$CONFIG_PATH" --autoinstall-deps --non-interactive && \
-    ./bridgechain.sh install-explorer --config "$CONFIG_PATH" --skip-deps --non-interactive
+    ./blockchain.sh install-node --config "$CONFIG_PATH" --autoinstall-deps --non-interactive && \
+    ./blockchain.sh install-explorer --config "$CONFIG_PATH" --skip-deps --non-interactive
 
 EXPOSE $NODE_PORT
 EXPOSE $EXPLORER_PORT

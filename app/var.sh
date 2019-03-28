@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-BRIDGECHAIN_PATH="/home/$USER/ark-bridgechain"
-EXPLORER_PATH="/home/$USER/ark-explorer"
-CHAIN_NAME="bridgechain"
-DATABASE_NAME="ark_$CHAIN_NAME"
+BLOCKCHAIN_PATH="/home/$USER/mlc-blockchain"
+EXPLORER_PATH="/home/$USER/mlc-explorer"
+CHAIN_NAME="blockchain"
+DATABASE_NAME="mlc_$CHAIN_NAME"
 NODE_IP="0.0.0.0"
 NODE_PORT="4100"
 EXPLORER_IP="127.0.0.1"
 EXPLORER_PORT="4200"
-TOKEN="MINE"
-SYMBOL="M"
+TOKEN="MLC"
+SYMBOL="☮"
 PREFIX="M"
 INSTALL_DEPS="N"
 SKIP_DEPS="N"
@@ -42,14 +42,14 @@ TOTAL_PREMINE=2100000000000000
 ## Max Tokens per Account
 MAX_TOKENS_PER_ACCOUNT=12500000000000000
 
-## Whether to update epoch time for bridgechain
+## Whether to update epoch time for blockchain
 UPDATE_EPOCH="N"
 
 ## Rewards
 ## Start Block Height
 REWARD_HEIGHT_START=75600
 
-## ARK reward per Block
+## MLC reward per Block
 REWARD_PER_BLOCK=200000000
 
 ## Flag to indicate if args has been processed

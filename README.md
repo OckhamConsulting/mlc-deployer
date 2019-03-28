@@ -1,14 +1,14 @@
-![ARK-DESKTOP](https://user-images.githubusercontent.com/8069294/35097070-78c0dc40-fc46-11e7-9bb0-ad36f7182f39.png)
+![MLC-DESKTOP](https://user-images.githubusercontent.com/8069294/35097070-78c0dc40-fc46-11e7-9bb0-ad36f7182f39.png)
 
 ## Prerequisites
 
-- Because the ARK Node is recommended to be run on Ubuntu 16 (see the [node guide](https://blog.ark.io/how-to-setup-a-node-for-ark-and-a-basic-cheat-sheet-4f82910719da)), we recommend that the deployer is only run on Ubuntu 16 also.
+- Because the MLC Node is recommended to be run on Ubuntu 16 (see the [node guide](https://blog.laroue.org/how-to-setup-a-node-for-mlc-and-a-basic-cheat-sheet-4f82910719da)), we recommend that the deployer is only run on Ubuntu 16 also.
 - User running the deployer commands must be a sudoer
 
 ## Installation
 
 ```bash
-git clone https://github.com/ArkEcosystem/ark-deployer.git && cd ark-deployer
+git clone https://github.com/laroue/mlc-deployer.git && cd mlc-deployer
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 source ~/.profile
 nvm install 8.9.1
@@ -17,15 +17,15 @@ sudo apt-get update && sudo apt-get install -y jq
 
 ## Detailed Guide
 
-Follow this [full guide](https://blog.ark.io/ark-deployer-setup-guide-c10825ebb0e4) to get the best out of your Bridgechain.
+Follow this [full guide](https://blog.laroue.org/mlc-deployer-setup-guide-c10825ebb0e4) to get the best out of your Blockchain.
 
 ## Quick setup with Vagrant
-Deploy a bridgechain and explorer within its own Vagrant setup. This requires vagrant version 2 and up.
+Deploy a blockchain and explorer within its own Vagrant setup. This requires vagrant version 2 and up.
 
 1. Install Vagrant on your local computer
-2. Clone the ark-deployer from our repository
+2. Clone the mlc-deployer from our repository
 ```bash
-$> git clone https://github.com/ArkEcosystem/ark-deployer.git && cd ark-deployer
+$> git clone https://github.com/laroue/mlc-deployer.git && cd mlc-deployer
 ```
 3. Run the vagrant command
 ```bash
@@ -37,12 +37,12 @@ Node API (port forwarded): `http://127.0.0.1:14100/api/`
 Explorer (port forwarded): `http://127.0.0.1:14200/`
 
 ## Quick setup with Docker
-Deploy a bridgechain and explorer within its own Docker setup.
+Deploy a blockchain and explorer within its own Docker setup.
 
 1. Install Docker on your local computer
-2. Clone the ark-deployer from our repository
+2. Clone the mlc-deployer from our repository
 ```bash
-$> git clone https://github.com/ArkEcosystem/ark-deployer.git && cd ark-deployer
+$> git clone https://github.com/laroue/mlc-deployer.git && cd mlc-deployer
 ```
 3. Build the docker image
 ```bash
@@ -64,15 +64,15 @@ Explorer (port forwarded): `http://127.0.0.1:4200/`
 *Note: Change <MACHINE_IP> to your Machine's IP*
 
 ```bash
-./bridgechain.sh install-node --name MyTest --database ark_mytest --token MYTEST --symbol MT --node-ip <NODE_IP>
-./bridgechain.sh start-node --name MyTest
+./blockchain.sh install-node --name MyTest --database mlc_mytest --token MYTEST --symbol MT --node-ip <NODE_IP>
+./blockchain.sh start-node --name MyTest
 ```
 
 #### Optional Parameters
 
-    --path - Path to install Bridgechain [/home/$USER/ark-bridgechain]
-    --name - Name of Bridgechain [bridgechain]
-    --database - Database Name [ark_bridgechain]
+    --path - Path to install Blockchain [/home/$USER/mlc-blockchain]
+    --name - Name of Blockchain [blockchain]
+    --database - Database Name [mlc_blockchain]
     --node-ip - IP for node [0.0.0.0]
     --node-port - Port for node [4100]
     --explorer-ip - IP for explorer [127.0.0.1]
@@ -106,14 +106,14 @@ Explorer (port forwarded): `http://127.0.0.1:4200/`
 *Note: Change <MACHINE_IP> to your Machine's IP*
 
 ```bash
-./bridgechain.sh install-explorer --name MyTest --token MYTEST --explorer-ip <EXPLORER_IP> --node-ip <NODE_IP>
-./bridgechain.sh start-explorer
+./blockchain.sh install-explorer --name MyTest --token MYTEST --explorer-ip <EXPLORER_IP> --node-ip <NODE_IP>
+./blockchain.sh start-explorer
 ```
 
 #### Optional Parameters
 
-    --path - Path to install Explorer [/home/$USER/ark-explorer]
-    --name - Name of Bridgechain [bridgechain]
+    --path - Path to install Explorer [/home/$USER/mlc-explorer]
+    --name - Name of Blockchain [blockchain]
     --node-ip - IP for node [0.0.0.0]
     --node-port - Port for node [4100]
     --explorer-ip - IP for explorer [127.0.0.1]
@@ -137,22 +137,23 @@ As mentioned in the parameters list, it's possible to pass in a JSON config file
 }
 ```
 
-To use a config file during an install, simply use the `--config` argument. For example: 
+To use a config file during an install, simply use the `--config` argument. For example:
 
 ```bash
-./bridgechain.sh install-node --config /path/to/config.json
+./blockchain.sh install-node --config /path/to/config.json
 ```
 
 ## Security
 
-If you discover a security vulnerability within this project, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within this project, please send an e-mail to security@laroue.org. All security vulnerabilities will be promptly addressed.
 
 ## Credits
 
 - [Alex Barnsley](https://github.com/alexbarnsley)
 - [Brian Faust](https://github.com/faustbrian)
+- [Luc Talarico](https://github.com/laroue)
 - [All Contributors](../../contributors)
 
 ## License
 
-ARK Deployer is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.
+MLC Deployer is licensed under the MIT License - see the [LICENSE](./LICENSE.md) file for details.

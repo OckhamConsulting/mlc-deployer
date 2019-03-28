@@ -16,14 +16,14 @@ app_install_explorer()
 
     DEPLOYER_PATH="$__dir"
     rm -rf "$EXPLORER_PATH"
-    git clone https://github.com/ArkEcosystem/ark-explorer.git "$EXPLORER_PATH" && cd "$EXPLORER_PATH"
+    git clone https://github.com/laroue/mlc-explorer.git "$EXPLORER_PATH" && cd "$EXPLORER_PATH"
     npm install
     npm install connect-history-api-fallback express
     cp "$DEPLOYER_PATH/config/explorer-server.js" "$EXPLORER_PATH/server.js"
-    echo "{\"title\": \"$CHAIN_NAME Explorer\", \"server\": \"http:\/\/$NODE_IP:$NODE_PORT\/api\", \"alias\": \"Bridgechain\", \"activeDelegates\": \"$FORGERS\", \"rewardOffset\": 0, \"currencies\": [], \"knownWallets\": {}, \"defaults\": {\"currency\": null}, \"config\": {\"priceChart\": false}}" > "$EXPLORER_PATH/networks/bridgechain.json"
+    echo "{\"title\": \"$CHAIN_NAME Explorer\", \"server\": \"http:\/\/$NODE_IP:$NODE_PORT\/api\", \"alias\": \"Blockchain\", \"activeDelegates\": \"$FORGERS\", \"rewardOffset\": 0, \"currencies\": [], \"knownWallets\": {}, \"defaults\": {\"currency\": null}, \"config\": {\"priceChart\": false}}" > "$EXPLORER_PATH/networks/blockchain.json"
     mv "$EXPLORER_PATH/package.json" "$EXPLORER_PATH/package.orig.json"
-    jq ".scripts.bridgechain = \"npm run dev -- --env.network=bridgechain --env.host=$EXPLORER_IP --env.port=$EXPLORER_PORT\"" "$EXPLORER_PATH/package.orig.json" > "$EXPLORER_PATH/package.json"
-    HOST="$EXPLORER_IP" PORT="$EXPLORER_PORT" node "$EXPLORER_PATH/build/build.js" --network bridgechain
+    jq ".scripts.blockchain = \"npm run dev -- --env.network=blockchain --env.host=$EXPLORER_IP --env.port=$EXPLORER_PORT\"" "$EXPLORER_PATH/package.orig.json" > "$EXPLORER_PATH/package.json"
+    HOST="$EXPLORER_IP" PORT="$EXPLORER_PORT" node "$EXPLORER_PATH/build/build.js" --network blockchain
     echo "HOST=\"$EXPLORER_IP\" PORT=\"$EXPLORER_PORT\" forever start -s \"$EXPLORER_PATH/server.js\"" > "$EXPLORER_PATH/start-explorer.sh"
     chmod u+x "$EXPLORER_PATH/start-explorer.sh"
 
